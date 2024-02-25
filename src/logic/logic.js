@@ -35,7 +35,7 @@ export const generateNumber = () => {
   ];
 }
 
-export const adjustNumberSetForKey = (key) => {
+export const adjustNumberSetForKey = (key, frets) => {
   // Define the natural notes in order, starting from C to B
   if(key === ''){
     return;
@@ -67,7 +67,7 @@ export const adjustNumberSetForKey = (key) => {
     const extendedSequence = [...stringNumbers, ...stringNumbers, ...stringNumbers];
     // Calculate the slice indices for the adjusted sequence
     let start = stringNumbers.length - shiftFromF;
-    let end = start + 22;
+    let end = start + frets;
     const adjustedSequence = extendedSequence.slice(start, end);
     return adjustedSequence;
   });

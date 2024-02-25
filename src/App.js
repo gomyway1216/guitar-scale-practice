@@ -5,11 +5,12 @@ import InfoDisplay from './InfoDisplay';
 import './App.scss';
 
 const NOTES = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
-const STRINGS = ['1st', '2nd', '3rd', '4th', '5th', '6th'];
+const STRINGS = ['4th', '5th', '6th'];
 const DEGREES = ['Root', '2°', '3°', '4°', '5°', '6°', '7°'];
 const FINGERS = ['Thumb (親指)', 'Index (人差し指)', 'Middle (中指)', 'Ring (薬指)', 'Pinky (小指)'];
 // const SCALES = ['Major', 'Natural Minor', 'Harmonic Minor', 'Altered', 'Dorian', 'Melodic Minor', 'Mixolydian', 'Lydian b7th'];
 const SCALES = ['Major'];
+const FRETS = 17; // We can set to 22, but 22 is too long for mobile screen.
 
 function getRandomElement(array) {
   return array[Math.floor(Math.random() * array.length)];
@@ -34,7 +35,7 @@ const GuitarScalePractice = () => {
     setShowAnswer(false);
 
     // Generate the adjusted number set for the key (note) selected
-    const adjustedNumberSet = logic.adjustNumberSetForKey(note);
+    const adjustedNumberSet = logic.adjustNumberSetForKey(note, FRETS);
     setFingerboard(adjustedNumberSet);
 
     // Convert the string name to the appropriate number for the tuning
@@ -77,6 +78,7 @@ const GuitarScalePractice = () => {
             adjustedNumberSet={fingerboard}
             startCordinate={startCordinate}
             surroundWidth={3}
+            frets={FRETS}
           />
         </div>
       )}

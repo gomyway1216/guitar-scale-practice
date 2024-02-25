@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 
-const Fretboard = ({ adjustedNumberSet, startCordinate, surroundWidth }) => {
+const Fretboard = ({ adjustedNumberSet, startCordinate, surroundWidth, frets }) => {
   const canvasRef = useRef(null);
   const startFret = startCordinate[1] - surroundWidth;
   const endFret = startCordinate[1] + surroundWidth + 1;
@@ -12,7 +12,6 @@ const Fretboard = ({ adjustedNumberSet, startCordinate, surroundWidth }) => {
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
-    const frets = 22;
     const strings = adjustedNumberSet.length;
     const width = canvas.width;
     const height = canvas.height - totalMargin; // Adjust height to account for top and bottom margins
@@ -35,7 +34,7 @@ const Fretboard = ({ adjustedNumberSet, startCordinate, surroundWidth }) => {
       for (let i = 0; i <= frets; i++) {
         ctx.beginPath();
         if (i === 0) { // Check if this is the most left line
-          ctx.lineWidth = 20; // Set the line width thicker for the first fret
+          ctx.lineWidth = 10; // Set the line width thicker for the first fret
         } else {
           ctx.lineWidth = 2; // Reset line width for other frets
         }
@@ -57,7 +56,7 @@ const Fretboard = ({ adjustedNumberSet, startCordinate, surroundWidth }) => {
     // Function to draw fret numbers
     const drawFretNumbers = () => {
       ctx.fillStyle = 'black'; // Color of the fret numbers
-      ctx.font = '12px Arial'; // Smaller font size for fret numbers
+      ctx.font = '18px Arial'; // Smaller font size for fret numbers
       ctx.textAlign = 'center';
       ctx.textBaseline = 'top'; // Align text by the top of the text
 
@@ -70,7 +69,7 @@ const Fretboard = ({ adjustedNumberSet, startCordinate, surroundWidth }) => {
     // Function to draw the scale degree numbers
     const drawNumbers = () => {
       ctx.fillStyle = 'black'; // Change the color of the numbers to black
-      ctx.font = '16px Arial';
+      ctx.font = '20px Arial';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
     
@@ -100,7 +99,7 @@ const Fretboard = ({ adjustedNumberSet, startCordinate, surroundWidth }) => {
   }, [adjustedNumberSet, startCordinate, surroundWidth]);
 
   return (
-    <canvas ref={canvasRef} width={1024} height={180 + totalMargin} />
+    <canvas ref={canvasRef} width={400} height={180 + totalMargin} />
   );
 };
 
