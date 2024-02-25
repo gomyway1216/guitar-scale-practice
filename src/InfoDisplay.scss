@@ -1,0 +1,26 @@
+.info-container {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin: 8px;
+}
+
+.info-box {
+  padding: 10px;
+  border-radius: 10px;
+  margin-right: 5px; // Space between label and value boxes
+  color: #ffffff;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: fit-content;
+}
+
+.info-label {
+  background-color: #b4b4b4; // Adjust the color for label
+}
+
+.info-value {
+  background-color: #0f0; // Adjust the color for value
+  font-weight: normal;
+  margin-right: 0; // No additional margin to the right of the value box
+}
