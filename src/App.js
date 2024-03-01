@@ -7,7 +7,7 @@ import './App.scss';
 const NOTES = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
 const STRINGS = ['4th', '5th', '6th'];
 const DEGREES = ['Root', '2°', '3°', '4°', '5°', '6°', '7°'];
-const FINGERS = ['Thumb (親指)', 'Index (人差し指)', 'Middle (中指)', 'Ring (薬指)', 'Pinky (小指)'];
+const FINGERS = ['Index (人差し指)', 'Middle (中指)', 'Ring (薬指)', 'Pinky (小指)'];
 // const SCALES = ['Major', 'Natural Minor', 'Harmonic Minor', 'Altered', 'Dorian', 'Melodic Minor', 'Mixolydian', 'Lydian b7th'];
 const SCALES = ['Major'];
 const FRETS = 17; // We can set to 22, but 22 is too long for mobile screen.
@@ -68,8 +68,8 @@ const GuitarScalePractice = () => {
         </div>
         <InfoDisplay label="Key" value={note || ''} />
         <InfoDisplay label="Scale" value={scale || ''} />
-        <InfoDisplay label="String" value={string || ''} />
         <InfoDisplay label="Degree" value={degree || ''} />
+        <InfoDisplay label="String" value={string || ''} />
         <InfoDisplay label="Finger" value={finger || ''} />
       </div>
       {showAnswer && (
